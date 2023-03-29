@@ -27,7 +27,7 @@ class maze_solver:
         path_followed = self.solve(self.start[0], self.start[1])
         return path_followed
 
-    # User Story 2: Walk through a hallway
+    # User Story 2: Walk through a hallway using depth-first search algorithm
     def solve(self, row, column):
         # Check for walls and boundries for current position in maze
         if (

@@ -1,4 +1,4 @@
-from maze_solver import maze_solver
+from maze_solver import maze_solver, find_maze_path
 # Test cases 
 # Walls are represented with 1 and empty spaces with 0 using n*m matrices. 2 represents a start position
 # and 3 an end position.
