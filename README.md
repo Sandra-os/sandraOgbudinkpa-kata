@@ -18,14 +18,14 @@ Possible way to approach this problem will be a step-by-step story, to be able t
 Story 1:
 The ship and the maze are described to be of the same size and position. It will be best implemented with a tuple.
 
-Story 2
+Story 2:
 The algorithm should also be used to check for a path that fits the description of the maze. It will need to determine if the ship can navigate through the passages and if there is enough room to rotate as needed.
 
-Story 3
+Story 3:
 since the ship has to be able to move around a 3*3 space, the ship must be capable of rotating at any given time, this will involve the ship mechanics.
 
-Story 4
+Story 4:
 Then a different algorithm will be used like A* Search Algorithm and Bidirectional Search as discussed in analysis 2.
 
-Story 5
+Story 5:
 The algorithm must be optimized for efficiency and adapt to changes.
