@@ -58,3 +58,9 @@ class maze_solver:
 
         # return None if no path is found, path must have no walls ahead
         return None
+
+def find_maze_path(maze):
+    # instantiate maze_solver for any maze given in test
+    solver = maze_solver(maze)
+    # find path with the get_solution function call
+    return solver.get_solution()
