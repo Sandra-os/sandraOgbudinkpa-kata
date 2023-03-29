@@ -42,9 +42,19 @@ class maze_solver:
         # need to know if a position has been explored, this also solves user story 5 specifically.
         if (row, column) in self.explored:
             return None
-        self.explored.add((row, column)) # to keep track of the explored position
+        self.explored.add((row, column))                            # to keep track of the explored position
         
         # position at maze end?
         if (row, column) == self.end:
             return [(row, column)]
 
+        # to move in all four directions
+        for path_dir in [(1, 0), (-1, 0), (0, 1), (0, -1)]:        # down, up, right, left
+            new_row, new_column = row + path_dir[0], column + path_dir[1]
+            path_followed = self.solve(new_row, new_column)
+            # If a path is found, return the current position and then continue path
+            if path_followed is not None:
+                return [(row, column)] + path_followed
+
+        # return None if no path is found, path must have no walls ahead
+        return None
