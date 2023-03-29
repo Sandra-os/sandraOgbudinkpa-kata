@@ -1,19 +1,21 @@
-from maze_solver import maze_solver, find_maze_path
-# Test cases 
+from maze_solver import MazeSolver, find_maze_path
+
+
+# Test cases
 # Walls are represented with 1 and empty spaces with 0 using n*m matrices. 2 represents a start position
 # and 3 an end position.
 
 # Empty space in a single row, user story 1
 def empty_space():
-    maze = [1, 1, 1, 1, 2, 0, 3, 1]         # empty space = row 4
-    solver = maze_solver(maze)
+    maze = [1, 1, 1, 1, 2, 0, 3, 1]  # empty space = row 4
+    solver = MazeSolver(maze)
     assert solver.start == (0, 4)
     assert solver.end == (0, 6)
     assert find_maze_path(maze) == [(0, 4), (0, 5), (0, 6)]
 
 
 # through hallway, user story 2
-def hallway():                              # Function to test hallway maze
+def hallway():  # Function to test hallway maze
     maze = [
         [1, 2, 1, 1, 1, 1],
         [1, 0, 1, 1, 1, 1],
@@ -22,7 +24,7 @@ def hallway():                              # Function to test hallway maze
         [1, 0, 1, 1, 1, 1],
         [1, 3, 1, 1, 1, 1]
     ]
-    solver = maze_solver(maze)
+    solver = MazeSolver(maze)
     # list of coordinate tuples (row, column), count starts at 0
     assert solver.start == (0, 4)
     assert solver.end == (5, 1)
@@ -41,7 +43,7 @@ def through_room():
         [1, 1, 1, 1, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 3, 1]
     ]
-    solver = maze_solver(maze)
+    solver = MazeSolver(maze)
     assert solver.start == (0, 1)
     assert solver.end == (7, 6)
     assert find_maze_path(maze) == [(0, 1), (1, 1), (2, 1), (3, 1), (4, 4), (5, 4), (6, 4), (6, 5), (6, 6), (7, 6)]
@@ -60,7 +62,7 @@ def winding_path():
         [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1]
     ]
-    solver = maze_solver(maze)
+    solver = MazeSolver(maze)
     assert solver.start == (0, 1)
     assert solver.end == (8, 10)
     assert find_maze_path(maze) == [
@@ -82,7 +84,7 @@ def dead_end():
         [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1]
     ]
-    solver = maze_solver(maze)
+    solver = MazeSolver(maze)
     assert solver.start == (0, 1)
     assert solver.end == (8, 10)
     assert find_maze_path(maze) == [
