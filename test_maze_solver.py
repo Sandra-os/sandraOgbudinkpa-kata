@@ -18,6 +18,7 @@ def hallway():                              # Function to test hallway maze
         [1, 0, 1, 1, 1, 1],
         [1, 3, 1, 1, 1, 1]
     ]
+    # list of coordinate tuples (row, column), count starts at 0
     path_followed = [(0, 1), (1, 1), (2, 1), (3, 1), (4, 1), (5, 1)]
 
 
