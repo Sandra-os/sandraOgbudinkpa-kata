@@ -27,3 +27,24 @@ class maze_solver:
         path_followed = self.solve(self.start[0], self.start[1])
         return path_followed
 
+    # User Story 2: Walk through a hallway
+    def solve(self, row, column):
+        # Check for walls and boundries for current position in maze
+        if (
+            row < 0
+            or column < 0
+            or row >= len(self.maze)
+            or column >= len(self.maze[row])
+            or self.maze[row][column] == 1
+        ):
+            return None
+
+        # need to know if a position has been explored, this also solves user story 5 specifically.
+        if (row, column) in self.explored:
+            return None
+        self.explored.add((row, column)) # to keep track of the explored position
+        
+        # position at maze end?
+        if (row, column) == self.end:
+            return [(row, column)]
+
