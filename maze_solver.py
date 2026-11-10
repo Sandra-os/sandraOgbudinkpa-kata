@@ -3,9 +3,7 @@ The class MazeSolver solves
 mazes using a depth-first search algorithm.
 """
 class MazeSolver:
-    """
-    This is a function to store maze as an attribute
-    """
+    """Find routes through a grid using depth-first search."""
     def __init__(self, maze):
         # find and store the
         # starting and end position and explored positions
@@ -18,10 +16,7 @@ class MazeSolver:
     def find_start(self):
         # Iterate through the rows and columns in the maze and
         # the elements in the row and column to find starting position
-        """
-        This is a function that Iterate through the rows and 
-        columns in the maze to find starting position
-        """
+        """Return the coordinates of the first start marker (2)."""
         for row_pos, row in enumerate(self.maze):
             for column_pos, value in enumerate(row):
                 # starting position of 2
@@ -30,10 +25,7 @@ class MazeSolver:
 
     def find_end(self):
         # the elements in the row and column to find ending position
-        """
-        This is a function that Iterates through
-        the rows and columns in the maze (end point)
-        """
+        """Return the coordinates of the first end marker (3)."""
         for row_pos, row in enumerate(self.maze):
             for column_pos, value in enumerate(row):
                 # If value is 3, return its position. End position
@@ -41,19 +33,13 @@ class MazeSolver:
                     return (row_pos, column_pos)
 
     def get_solution(self):
-        """
-        This is a solve method that is called
-        to get path followed from start to end position
-        """
+        """Return the first route from the stored start to the end."""
         path_followed = self.solve(self.start[0], self.start[1])
         return path_followed
 
     # User Story 2: Walk through a hallway using depth-first search algorithm
     def solve(self, row, column):
-        """
-        This is a function to Check for walls and 
-        boundries for current position in maze
-        """
+        """Explore an unvisited cell, returning a route or None."""
         if (
                 row < 0
                 or column < 0
@@ -85,9 +71,7 @@ class MazeSolver:
 
 
 def find_maze_path(maze):
-    """
-    This is a function to instantiate maze_solver for any maze given in test
-    """
+    """Create a solver and return its first route through the grid."""
     solver = MazeSolver(maze)
     # find path with the get_solution function call
     return solver.get_solution()
